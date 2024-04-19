@@ -5,11 +5,13 @@ import java.util.*;
 public class Main {
     public static ArrayList<String[]> slidingPuzzle = new ArrayList<>();
 
+    //Point class to represent coordinates and path
     static class Point {
         int x;
         int y;
         String path;
 
+        //Constructor
         public Point(int x, int y, String path) {
             this.x = x;
             this.y = y;
@@ -18,15 +20,18 @@ public class Main {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        //Read the puzzle map from a file
         File file = new File("puzzle.txt");
         Scanner scanner = new Scanner(file);
 
+        //Parse the input file and populate the sliddingPuzzle Arraylist
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] list_view = line.split("");
             slidingPuzzle.add(list_view);
         }
 
+        //Find the starting position('S')
         int startRow = -1;
         int startCol = -1;
 
@@ -39,6 +44,7 @@ public class Main {
             }
         }
 
+        //Initialize a queue for BFS and a boolean array to track visited cells
         LinkedList<Point> queue = new LinkedList<>();
         boolean[][] visited = new boolean[slidingPuzzle.size()][slidingPuzzle.getFirst().length];
         visited[startRow][startCol] = true;
