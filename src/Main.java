@@ -40,7 +40,7 @@ public class Main {
         }
 
         LinkedList<Point> queue = new LinkedList<>();
-        boolean[][] visited = new boolean[slidingPuzzle.size()][slidingPuzzle.get(0).length];
+        boolean[][] visited = new boolean[slidingPuzzle.size()][slidingPuzzle.getFirst().length];
         visited[startRow][startCol] = true;
         queue.add(new Point(startRow, startCol, "1. Start at (" + startCol + "," + startRow + ")"));
 
