@@ -50,10 +50,12 @@ public class Main {
         visited[startRow][startCol] = true;
         queue.add(new Point(startRow, startCol, "1. Start at (" + startCol + "," + startRow + ")"));
 
+        //Arrays to represent possible direction
         int[] dx = {0, 1, 0, -1};
         int[] dy = {1, 0, -1, 0};
         String[] dir = {"Move right to ", "Move down to ", "Move left to ", "Move up to "};
 
+        //BFS traversal to find the shortest path
         while (!queue.isEmpty()) {
             Point curr = queue.poll();
 
@@ -62,12 +64,14 @@ public class Main {
                 int ny = curr.y + dy[i];
                 String nPath = curr.path + (curr.path.isEmpty() ? "" : "\n") + (curr.path.split("\n").length) + ". " + dir[i] + "(" + ny + "," + nx + ")";
 
+                //If finish point("F") is reached, print done and exit
                 if (isValid(nx, ny) && slidingPuzzle.get(nx)[ny].equalsIgnoreCase("F")) {
                     System.out.println("Shortest path found:\n" + nPath);
                     System.out.println("Done!");
                     return;
                 }
 
+                //If the new position is valid and not visited, add to the queue
                 if (isValid(nx, ny) && !visited[nx][ny] && slidingPuzzle.get(nx)[ny].equals(".")) {
                     visited[nx][ny] = true;
                     queue.add(new Point(nx, ny, nPath));
@@ -76,6 +80,7 @@ public class Main {
             }
         }
 
+        //If no path to finish point found
         System.out.println("No path found.");
     }
 
