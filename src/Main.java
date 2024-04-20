@@ -29,7 +29,7 @@ public class Main {
         File file = new File("puzzle.txt");
         Scanner scanner = new Scanner(file);
 
-        //Parse the input file and populate the sliddingPuzzle Arraylist
+        //Parse the input file and populate the slidingPuzzle Arraylist
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             String[] list_view = line.split("");
