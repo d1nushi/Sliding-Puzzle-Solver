@@ -64,7 +64,6 @@ public class Main {
 
         //BFS traversal to find the shortest path
         while (!queue.isEmpty()) {
-
             Point curr = queue.poll();
 
             for (int i = 0; i < 4; i++) {
@@ -95,6 +94,7 @@ public class Main {
 
         long endTime = System.currentTimeMillis();
         System.out.println("No path found.");
+        System.out.println("Runtime: " + (endTime - startTime) + " milliseconds");
     }
 
     // Check if the coordinates are within the bounds of the maze
