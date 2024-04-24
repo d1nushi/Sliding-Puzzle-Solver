@@ -60,8 +60,11 @@ public class Main {
         int[] dy = {1, 0, -1, 0};
         String[] dir = {"Move right to ", "Move down to ", "Move left to ", "Move up to "};
 
+        long startTime = System.currentTimeMillis();
+
         //BFS traversal to find the shortest path
         while (!queue.isEmpty()) {
+
             Point curr = queue.poll();
 
             for (int i = 0; i < 4; i++) {
@@ -71,9 +74,12 @@ public class Main {
 
                 //If finish point("F") is reached, print done and exit
                 if (isValid(nx, ny) && slidingPuzzle.get(nx)[ny].equalsIgnoreCase("F")) {
+                    long endTime = System.currentTimeMillis();
                     System.out.println("Shortest path found:\n" + nPath);
                     System.out.println("Done!");
+                    System.out.println("Runtime: " + (endTime - startTime) + " milliseconds");
                     return;
+
                 }
 
                 //If the new position is valid and not visited, add to the queue
@@ -86,6 +92,8 @@ public class Main {
         }
 
         //If no path to finish point found
+
+        long endTime = System.currentTimeMillis();
         System.out.println("No path found.");
     }
 
