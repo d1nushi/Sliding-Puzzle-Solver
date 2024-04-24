@@ -78,7 +78,6 @@ public class Main {
                     System.out.println("Done!");
                     System.out.println("Runtime: " + (endTime - startTime) + " milliseconds");
                     return;
-
                 }
 
                 //If the new position is valid and not visited, add to the queue
@@ -86,12 +85,10 @@ public class Main {
                     visited[nx][ny] = true;
                     queue.add(new Point(nx, ny, nPath));
                 }
-
             }
         }
 
         //If no path to finish point found
-
         long endTime = System.currentTimeMillis();
         System.out.println("No path found.");
         System.out.println("Runtime: " + (endTime - startTime) + " milliseconds");
